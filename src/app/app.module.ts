@@ -7,9 +7,13 @@ import { reducers, metaReducers } from './reducers/reducers';
 import { ArticleService } from './article.service';
 import { HttpRequestor } from './common/http-requestor';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [     
+      FormsModule,
+      ReactiveFormsModule,
         BrowserModule,
             StoreModule.forRoot(reducers, {metaReducers}),
             HttpClientModule

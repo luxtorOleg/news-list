@@ -1,9 +1,11 @@
-import { Articles } from '../models/article';
+import { Articles, List } from '../models/article';
 
 export interface AppState {
-	articleState: ArticleState;
+	articleState: State;
+	listState: State;
 }
 
-export interface ArticleState {
+export interface State {
 	articles: Articles[];
+	lists: List[]
 }

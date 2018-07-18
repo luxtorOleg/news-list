@@ -1,27 +1,51 @@
-<button (click)="showArticles()">Articles</button>
-<table style="border: 1px solid black">
-    <tr style="border: 1px solid black">
-        <td style="border: 1px solid black" >
+<div *ngIf="addNewList" class="list-creator">
+        <ul>
+            <li *ngFor="let list of lists  | async">{{list.name}}</li>
+        </ul>
+        <button (click)="addList($event)">{{createListBut}}</button>
+        <div *ngIf="ifCreateNewList">
+            <input type="text" [(ngModel)]="listName">
+            <input type="text"  [(ngModel)]="listDesc"> 
+        </div>
+</div>
+<table>
+    <tr>
+        <td>
             Source 
         </td>
-        <td style="border: 1px solid black" >
+        <td>
             Title
         </td>
-        <td style="border: 1px solid black" >
-            Description
+        <td>
+            Url
         </td>
     </tr>
-    <tr style="border: 1px solid black" *ngFor="let article of articles | async">
-        <td style="border: 1px solid black" >
+    <tr *ngFor="let article of articles | async;let i = index;">
+        <td>
             {{article.source.name}} 
         </td>
-        <td style="border: 1px solid black" >
+        <td>
             {{article.title}}
         </td>
-        <td style="border: 1px solid black" >
-            {{article.url}}
+        <td>
+            <a [href]="article.url">{{article.url}}</a>
+        </td>
+        <td>
+            <button (click)="addToList(i)">Add</button>
+        </td>
+    </tr>
+    <tr *ngIf="addNews">
+        <td>
+            <input type="text" [(ngModel)]="name">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="title">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="url">
         </td>
     </tr>
 </table> 
 
-<button (click)="addNewItem()">Add News</button>
+
+<!-- <button (click)="addNewItem()">Add News</button> -->

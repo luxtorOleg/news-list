@@ -5,7 +5,8 @@ import { environment } from '../../environments/environment';
 
 
 export const reducers: ActionReducerMap<AppState> = {
-  articleState: articleReducer.reducer
+  articleState: articleReducer.reducer,
+  listState: articleReducer.reducer
 };
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {

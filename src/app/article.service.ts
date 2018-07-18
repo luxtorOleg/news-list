@@ -4,16 +4,18 @@ import { Constants } from './common/constants';
 import { Articles } from './models/article';
 
 export let ARTICLES: Articles[] = [];
+
 @Injectable()
 export class ArticleService {
   
   constructor (public httpRequestor: HttpRequestor) { }
 
-  public getArticle(): Promise<any> {
-    return this.httpRequestor.getRequest(Constants.ArticlesGet).then( data => {
-      console.log(data);
+  public getBussinessArticle(): Promise<any> {
+    return this.httpRequestor.getRequest(Constants.BussinessArticle).then( data => {
       ARTICLES = data.articles;
+      console.log(ARTICLES);
       return data.article;
     });
   }
+
 }
