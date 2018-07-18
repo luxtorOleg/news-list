@@ -1,0 +1,27 @@
+<button (click)="showArticles()">Articles</button>
+<table style="border: 1px solid black">
+    <tr style="border: 1px solid black">
+        <td style="border: 1px solid black" >
+            Source 
+        </td>
+        <td style="border: 1px solid black" >
+            Title
+        </td>
+        <td style="border: 1px solid black" >
+            Description
+        </td>
+    </tr>
+    <tr style="border: 1px solid black" *ngFor="let article of articles | async">
+        <td style="border: 1px solid black" >
+            {{article.source.name}} 
+        </td>
+        <td style="border: 1px solid black" >
+            {{article.title}}
+        </td>
+        <td style="border: 1px solid black" >
+            {{article.url}}
+        </td>
+    </tr>
+</table> 
+
+<button (click)="addNewItem()">Add News</button>
